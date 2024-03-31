@@ -2,8 +2,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-main/resources/archetype-resources/
-main/resources/META-INF/
+src/main/resources/archetype-resources/
+src/main/resources/META-INF/
 logs/
 ### IntelliJ IDEA ###
 .idea/
