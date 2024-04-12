@@ -32,7 +32,7 @@ public class FirstTest {
         logger.trace("======================================================");
         logger.trace("Закрытие браузера - начато");
         if (webDriver != null) {
-            webDriver.close();
+            //webDriver.close();
             webDriver.quit();
         }
         logger.trace("Закрытие браузера - завершено");
@@ -110,10 +110,8 @@ public class FirstTest {
     Авторизоваться под каким-нибудь тестовым пользователем(можно создать нового)
     Вывести в лог все cookie
     * */
-    //@Test
-    @ParameterizedTest
-    @CsvSource({"email,password"})
-    public void maximizeMode(String email, String password) {
+    @Test
+    public void maximizeMode() {
         logger.trace("======================================================");
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -126,10 +124,10 @@ public class FirstTest {
         button.click();
         logger.trace("Ввод почты");
         webDriver.findElement(new By.ByXPath("//div[./input[@name='email']]")).click();
-        webDriver.findElement(new By.ByXPath("//input[@name='email']")).sendKeys(email);
+        webDriver.findElement(new By.ByXPath("//input[@name='email']")).sendKeys(System.getProperty("email"));
         logger.trace("Ввод пароля");
         webDriver.findElement(new By.ByXPath("//div[./input[@type='password']]")).click();
-        webDriver.findElement(new By.ByXPath("//input[@type='password']")).sendKeys(password);
+        webDriver.findElement(new By.ByXPath("//input[@type='password']")).sendKeys(System.getProperty("pass"));
         logger.trace("Клик на Войти");
         WebElement enter = webDriver.findElement(new By.ByXPath("//button[./*[text()='Войти']]"));
         enter.click();
